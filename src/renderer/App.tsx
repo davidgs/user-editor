@@ -1,40 +1,51 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Row, Col, Button } from 'react-bootstrap';
+import Table from './Table';
+import MainHeader from './MainHeader';
+import ChooserButton from './components/ChooseButton';
+import PersonForm from './components/PersonForm';
+import { defaultPerson } from './components/types/types';
 
 const Hello = () => {
+  const [tableType, setTableType] = useState('');
+  const [showForm, setShowForm] = useState(false);
+  const [idString, setIdString] = useState('');
+
+  const personCallback = (id: string, tType: string) => {
+    console.log('personCallback: ', id, tType);
+    setIdString(id);
+    setTableType(tType);
+    setShowForm(true);
+  };
+
   return (
     <div>
-      <div className="Hello">
-        <img width="200" alt="icon" src={icon} />
+      <MainHeader />
+      <div>
+        <Row>
+          <Col sm={3} />
+          <Col sm={2}>
+            <ChooserButton onOptionsUpdate={setTableType} />
+          </Col>
+          <Col sm={1} />
+          <Col sm={3}>
+            {' '}
+            <Button variant="success" onClick={() => setShowForm(true)}>
+              Add Person
+            </Button>
+            <PersonForm
+              show={showForm}
+              editPerson={defaultPerson}
+              onOptionsUpdate={personCallback}
+            />
+          </Col>
+          <Col sm={3} />
+        </Row>
       </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="folded hands">
-              🙏
-            </span>
-            Donate
-          </button>
-        </a>
-      </div>
+      <p />
+      <Table tableType={tableType} />
     </div>
   );
 };

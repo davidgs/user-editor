@@ -109,12 +109,26 @@
     }
   },
   "dependencies": {
+    "@ag-grid-community/client-side-row-model": "^28.2.1",
+    "@ag-grid-community/core": "^28.2.1",
+    "@ag-grid-community/react": "^28.2.1",
+    "@ag-grid-community/styles": "^28.2.1",
+    "@ag-grid-enterprise/range-selection": "^28.2.1",
+    "@ag-grid-enterprise/rich-select": "^28.2.1",
+    "@ag-grid-enterprise/row-grouping": "^28.2.1",
+    "ag-grid-community": "^28.2.1",
+    "ag-grid-react": "^28.2.1",
+    "bootstrap": "^5.2.3",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^5.2.3",
+    "google-maps-react": "^2.0.6",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-cool-onclickoutside": "^1.7.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.0"
+    "react-router-dom": "^6.4.0",
+    "react-table-6": "^6.11.0"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
@@ -122,6 +136,7 @@
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
+    "@types/google.maps": "^3.51.0",
     "@types/jest": "^28.1.7",
     "@types/node": "18.7.6",
     "@types/react": "^18.0.17",
